@@ -33,7 +33,7 @@ export default function ClippedDrawer() {
       >
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Clipped drawer
+            Flybits Marketer
           </Typography>
         </Toolbar>
       </AppBar>
@@ -55,9 +55,6 @@ export default function ClippedDrawer() {
           <List>
             {["All mail", "Trash", "Spam"].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
                 <ListItemText primary={text} />
                 <Tooltip title="Edit">
                   <IconButton>
@@ -86,7 +83,7 @@ export default function ClippedDrawer() {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        {/* <MapContainer /> */}
+        <MapContainer />
       </Box>
     </Box>
   );

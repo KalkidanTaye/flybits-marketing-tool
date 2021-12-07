@@ -1,0 +1,23 @@
+.landingPage-container {
+  position: relative;
+}
+.landingPage-container:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 45em;
+  opacity: 0.7;
+  background-image: url("../../images/LandingPage-bg-2.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 60%;
+  background-size: cover;
+
+  //   height: 45em;
+}
+
+.landingPage-button-container {
+  position: relative;
+}
