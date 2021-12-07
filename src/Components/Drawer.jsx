@@ -8,10 +8,7 @@ import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -20,6 +17,7 @@ import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 
 import MapContainer from "./MapContainer";
+import FormDialog from "./FormDialog";
 
 const drawerWidth = 240;
 
@@ -69,21 +67,13 @@ export default function ClippedDrawer() {
               </ListItem>
             ))}
           </List>
-          <Fab
-            color="secondary"
-            sx={{
-              position: "absolute",
-              bottom: (theme) => theme.spacing(2),
-              right: (theme) => theme.spacing(2),
-            }}
-          >
-            <AddIcon />
-          </Fab>
+
+          <FormDialog />
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        <MapContainer />
+        {/* <MapContainer /> */}
       </Box>
     </Box>
   );
