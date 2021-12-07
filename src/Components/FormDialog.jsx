@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -10,12 +10,29 @@ import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import { styled } from "@mui/material/styles";
 
+const useStateWithLocalStorage = (localStorageKey) => {
+  const [value, setValue] = useState(
+    localStorage.getItem(localStorageKey) || ""
+  );
+
+  useEffect(() => {
+    localStorage.setItem(localStorageKey, value);
+  }, [value]);
+
+  return [value, setValue];
+};
+
+const randomNumber = Math.floor(1 + Math.random() * (100 - 1));
+
 const Input = styled("input")({
   display: "none",
 });
 
 export default function FormDialog() {
   const [open, setOpen] = React.useState(false);
+  const [value, setValue] = useStateWithLocalStorage(randomNumber);
+
+  const onChange = (event) => setValue(event.target.value);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -60,6 +77,7 @@ export default function FormDialog() {
             label="Longitude"
             fullWidth
             variant="standard"
+            value={value}
           />
           <TextField
             autoFocus
@@ -83,7 +101,7 @@ export default function FormDialog() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Add</Button>
+          <Button onClick={onChange}>Add</Button>
         </DialogActions>
       </Dialog>
     </div>
